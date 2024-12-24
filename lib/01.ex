@@ -1,10 +1,10 @@
-defmodule Day1 do
+defmodule Aoc2024.Day1 do
   def input do
-    Aoc2024.load(1) |> Enum.map(&String.to_integer/1) |> Enum.chunk_every(2)
+    Aoc2024.load(1) |> String.split |> Enum.map(&String.to_integer/1) |> Enum.chunk_every(2)
   end
 
   def part1() do
-    input = Day1.input()
+    input = input()
     left = input |> Enum.map(&Enum.fetch!(&1, 0)) |> Enum.sort()
     right = input |> Enum.map(&Enum.fetch!(&1, 1)) |> Enum.sort()
 
@@ -12,7 +12,7 @@ defmodule Day1 do
   end
 
   def part2() do
-    input = Day1.input()
+    input = input()
     freq = input |> Enum.map(&Enum.fetch!(&1, 0)) |> Enum.frequencies()
 
     input
@@ -21,7 +21,7 @@ defmodule Day1 do
   end
 
   def run do
-    IO.puts("Part 1: #{Day1.part1()}")
-    IO.puts("Part 2: #{Day1.part2()}")
+    IO.puts("Part 1: #{part1()}")
+    IO.puts("Part 2: #{part2()}")
   end
 end
